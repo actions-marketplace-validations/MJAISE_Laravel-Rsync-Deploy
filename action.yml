@@ -1,5 +1,5 @@
-name: "Laravel Rsync Deploy"
-author: "Md. Sazzad Hossain Sharkar"
+name: "Laravel Rsync Deploy With Migration"
+author: "MJA"
 description: "Deploy Laravel developed project with Rsync"
 inputs:
   SSH_PRIVATE_KEY:  # Server SSH Private Key
