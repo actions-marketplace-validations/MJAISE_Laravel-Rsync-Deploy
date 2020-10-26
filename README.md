@@ -16,9 +16,6 @@
 
 `TARGET_DIRECTORY` = The target directory or path where the data will be synced. e.g.: ~/httpdocs
 
-**Environment Variables Location**
-
-[https://github.com/REPOSITORY_OWNER/REPOSITORY_NAME/settings/secrets](https://github.com/REPOSITORY_OWNER/REPOSITORY_NAME/settings/secrets)
 
 ### Usage
 
@@ -26,7 +23,7 @@ Example usage to `/.github/workflows/*.yml` file
 
 ```
 - name: Laravel Rsync Deploy
-  uses: SHSharkar/Laravel-Rsync-Deploy@master
+  uses: MJA/Laravel-Rsync-Deploy-Migrate@master
   env:
     SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
     ARGS: "--ignore-times --compress --verbose --exclude=.git --exclude=.github --exclude=node_modules --no-perms --no-owner --no-group --recursive"
@@ -63,7 +60,7 @@ jobs:
           npm install && npm run production
 
       - name: Laravel Rsync Deploy
-        uses: SHSharkar/Laravel-Rsync-Deploy@master
+        uses: MJA/Laravel-Rsync-Deploy-Migrate@master
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "--ignore-times --compress --verbose --exclude=.git --exclude=.github --exclude=node_modules --no-perms --no-owner --no-group --recursive"
