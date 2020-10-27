@@ -13,4 +13,12 @@ ssh -i $SSHPATH/key -t $REMOTE_USER@$REMOTE_HOST "chown -R $REMOTE_USER:$REMOTE_
 ssh -i $SSHPATH/key -t $REMOTE_USER@$REMOTE_HOST "chmod 775 -R $TARGET_DIRECTORY"
 ssh -i $SSHPATH/key -t $REMOTE_USER@$REMOTE_HOST "chmod 777 -R $TARGET_DIRECTORY/storage"
 ssh -i $SSHPATH/key -t $REMOTE_USER@$REMOTE_HOST "chmod 777 -R $TARGET_DIRECTORY/public"
-ssh -i $SSHPATH/key -t $REMOTE_USER@$REMOTE_HOST "cd $TARGET_DIRECTORY && php artisan migrate && php artisan modelcach:clear && php artisan cache:clear && php artisan route:cache && php artisan config:cache"
+ssh -i $SSHPATH/key -t $REMOTE_USER@$REMOTE_HOST "cd $TARGET_DIRECTORY &&
+php artisan key:generate &&
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider" &&
+php artisan migrate &&
+php artisan modelcach:clear &&
+php artisan cache:clear &&
+php artisan route:cache &&
+php artisan config:cache"
+
