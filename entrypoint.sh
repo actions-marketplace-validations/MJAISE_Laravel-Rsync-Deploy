@@ -19,6 +19,8 @@ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServicePro
 php artisan migrate &&
 php artisan modelcach:clear &&
 php artisan cache:clear &&
+php artisan route:clear &&
+php artisan config:clear &&
 php artisan route:cache &&
 php artisan config:cache"
 
