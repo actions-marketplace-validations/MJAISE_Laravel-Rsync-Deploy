@@ -14,6 +14,7 @@ ssh -i $SSHPATH/key -t $REMOTE_USER@$REMOTE_HOST "chmod 775 -R $TARGET_DIRECTORY
 ssh -i $SSHPATH/key -t $REMOTE_USER@$REMOTE_HOST "chmod 777 -R $TARGET_DIRECTORY/storage"
 ssh -i $SSHPATH/key -t $REMOTE_USER@$REMOTE_HOST "chmod 777 -R $TARGET_DIRECTORY/public"
 ssh -i $SSHPATH/key -t $REMOTE_USER@$REMOTE_HOST "cd $TARGET_DIRECTORY &&
+composer install
 php artisan key:generate &&
 php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider" &&
 php artisan migrate &&
