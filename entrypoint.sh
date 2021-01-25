@@ -18,7 +18,6 @@ composer install
 php artisan key:generate &&
 php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider" &&
 php artisan migrate &&
-php artisan modelcach:clear &&
 php artisan cache:clear &&
 php artisan route:clear &&
 php artisan config:clear &&
