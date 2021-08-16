@@ -2,13 +2,13 @@ FROM alpine:latest
 
 MAINTAINER MJA <mja.ise.1981@gmail.com>
 
-# RUN apt update
-# RUN apt -yq install rsync openssh-client
+RUN apt update
+RUN apt -yq install rsync openssh-client
 
-RUN apk update \
-	&& apk upgrade \
-	&& apk add --no-cache rsync openssh-client \
-	&& rm -rf /var/cache/apk/*
+# RUN apk update \
+# 	&& apk upgrade \
+# 	&& apk add --no-cache rsync openssh-client \
+# 	&& rm -rf /var/cache/apk/*
 
 # Labels
 # LABEL "com.github.actions.name"="Laravel Rsync Deploy"
