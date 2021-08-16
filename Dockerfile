@@ -1,9 +1,9 @@
-FROM alpine:latest
+# FROM alpine:latest
 
-MAINTAINER MJA <mja.ise.1981@gmail.com>
+# MAINTAINER MJA <mja.ise.1981@gmail.com>
 
-RUN apt update
-RUN apt -yq install rsync openssh-client
+# RUN apt update
+# RUN apt -yq install rsync openssh-client
 
 # RUN apk update \
 # 	&& apk upgrade \
@@ -20,24 +20,24 @@ RUN apt -yq install rsync openssh-client
 # LABEL "homepage"="https://github.com/SHSharkar/Laravel-Rsync-Deploy"
 # LABEL "maintainer"="Md. Sazzad Hossain Sharkar <sh@sharkar.net>"
 
-ADD entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+# ADD entrypoint.sh /entrypoint.sh
+# RUN chmod +x /entrypoint.sh
+# ENTRYPOINT ["/entrypoint.sh"]
 
 
-# FROM alpine:latest
+FROM alpine:latest
 
-# MAINTAINER MJA <mja.ise.1981@gmail.com>
+MAINTAINER MJA <mja.ise.1981@gmail.com>
 
-# RUN apk update \
-# 	&& apk upgrade \
-# 	&& apk add --no-cache rsync openssh-client \
-# 	&& rm -rf /var/cache/apk/*
+RUN apk update \
+	&& apk upgrade \
+	&& apk add --no-cache rsync openssh-client \
+	&& rm -rf /var/cache/apk/*
 
-# COPY entrypoint.sh /script/entrypoint.sh
+COPY entrypoint.sh /script/entrypoint.sh
 
-# WORKDIR /workspace
+WORKDIR /workspace
 
-# ENTRYPOINT ["/bin/sh", "/script/entrypoint.sh"]
+ENTRYPOINT ["/bin/sh", "/script/entrypoint.sh"]
 
-# CMD ["deploy"]
+CMD ["deploy"]
